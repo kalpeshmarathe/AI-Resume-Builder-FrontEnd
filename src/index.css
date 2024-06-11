@@ -1,13 +1,203 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap")
+
+
+
+/* Global Styles */
+* {
+  font-family: "Space Grotesk", sans-serif;
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Form Styles */
+form {
+  padding: 20px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Headings */
+h3 {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Button Styles */
+button {
+  padding: 15px;
+  cursor: pointer;
+  outline: none;
+  background-color: #5d3891;
+  border: none;
+  color: #f5f5f5;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #4c2e70;
+}
+
+/* App Container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.app > p {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* Nested Container Styles */
+.nestedContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.companies {
+  display: flex;
+  flex-direction: column;
+  width: 39%;
+}
+
+.currentInput {
+  width: 95%;
+}
+
+
+#addBtn {
+  background-color: green;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+#deleteBtn {
+  background-color: red;
+  border-radius: 5px;
+}
+
+/* Container for Resume */
+.container {
+  min-height: 100vh;
+  /* padding: 30px; */
+  background-color: #f8f8f8;
+}
+
+/* Header Styles */
+.header {
+  width: 90%;
+  margin: 0 auto;
+  min-height: 8vh;
+  background-color: #e8e2e2;
+  padding: 30px;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #333;
+}
+
+.header p {
+  font-size: 15px;
+  color: #666;
+}
+
+.resumeTitle {
+  opacity: 0.8;
+}
+
+.headerTitle {
+  margin-bottom: 1px;
+}
+
+
+
+/* Body Styles */
+.resumeBody {
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+  min-height: 80vh;
+  border: 1px solid #e0e0ea;
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+}
+
+.resumeBodyTitle {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}
+
+.resumeBodyContent {
+  text-align: justify;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+.printButton {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.printButton:hover {
+  background-color: #0056b3;
+}
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px; /* Adjust the gap as needed */
+  align-items: center;
+}
+
+.social-links div {
+  display: flex;
+  align-items: center;
+}
+
+.social-links span {
+  margin-left: 5px; /* Adjust margin as needed */
 }
