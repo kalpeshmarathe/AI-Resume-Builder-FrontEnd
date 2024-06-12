@@ -87,18 +87,32 @@ const HomePage = ({ setResult }) => {
 
     console.log(formData);
 
-    axios.post("http://localhost:4000/resume/create", formData, {})
-      .then((res) => {
-        if (res.data.message) {
-          console.log(res);
-          console.log(res.data);
-          setResult(res);
-          navigate("/resume");
-        }
-      })
-      .catch((err) => console.error(err));
-    setLoading(true);
-  };
+
+    try {
+      const response = await fetch("https://ai-resume-builder-backend.onrender.com/resume/create", {
+        method: "POST",
+        body: formData, // Assuming formData is a FormData object
+        mode : "cors",
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const data = await response.json(); // Parse the response as JSON
+  
+      if (data.message) {
+        console.log(response);
+        console.log(data);
+        setResult(data);
+        navigate("/resume");
+      }
+    } catch (err) {
+      console.error("Error:", err);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   if (loading) {
     return <Loading />;
