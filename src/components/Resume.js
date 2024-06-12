@@ -7,26 +7,30 @@ const Resume = ({ result }) => {
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
-    documentTitle: `${result.fullName} Resume`,
+    documentTitle: `${result?.fullName} Resume`,
     onAfterPrint: () => alert("Print Successful!"),
   });
 
   const replaceWithBr = (string) => {
     return string ? string.replace(/\n/g, "<br />") : "";
   };
+  
+  // Return an error page if the result object is empty or invalid
+  console.log(result);
+  console.log(result.generatedContent)
 
-  // Return an error page if the result object is empty
-  if (!result || !result.data || !result.data.data) {
+  if (!result || !result.generatedContent) {
     return <div>Error: Invalid data received.</div>;
   }
 
   // Extract data from result object
-  const resumeData = result.data.data;
-  const aiContent = result.data.generatedContent;
+  const resumeData = result;
+  const aiContent = result.generatedContent;
 
   let workHistory = [];
   let educationHistory = [];
   let projectHistory = [];
+
   try {
     workHistory =
       typeof resumeData.workHistory === "string"

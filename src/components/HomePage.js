@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Loading from "./Loading";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = ({ setResult }) => {
@@ -70,6 +69,7 @@ const HomePage = ({ setResult }) => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = {
       fullName,
       currentPosition,
@@ -85,34 +85,36 @@ const HomePage = ({ setResult }) => {
       projectHistory: JSON.stringify(projectInfo),
     };
 
-    console.log(formData);
-
+    console.log("Form Data: ", formData);
 
     try {
       const response = await fetch("https://ai-resume-builder-backend.onrender.com/resume/create", {
         method: "POST",
-        body: formData, // Assuming formData is a FormData object
-        mode : "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       const data = await response.json(); // Parse the response as JSON
-  
+      console.log("API Response: ", data);
       if (data.message) {
-        console.log(response);
-        console.log(data);
+        console.log("Data Received: ", data);
         setResult(data);
         navigate("/resume");
+      } else {
+        console.error("Invalid data structure received from API");
       }
     } catch (err) {
       console.error("Error:", err);
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   if (loading) {
     return <Loading />;
@@ -122,7 +124,7 @@ const HomePage = ({ setResult }) => {
     <div className='app'>
       <h1>Resume Builder</h1>
       <p>Generate a resume with AI in a few seconds</p>
-      <form onSubmit={handleFormSubmit} method='POST' encType='multipart/form-data'>
+      <form onSubmit={handleFormSubmit} method='POST'>
         <label htmlFor='fullName'>Enter your full name</label>
         <input
           type='text'
