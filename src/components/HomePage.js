@@ -92,7 +92,7 @@ const HomePage = ({ setResult }) => {
       const response = await fetch("https://ai-resume-builder-backend.onrender.com/resume/create", {
         method: "POST",
         body: formData, // Assuming formData is a FormData object
-        mode : "no-cors",   
+        mode : "no-cors",
       });
   
       if (!response.ok) {
