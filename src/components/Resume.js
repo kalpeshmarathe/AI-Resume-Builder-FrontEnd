@@ -16,15 +16,18 @@ const Resume = ({ result }) => {
   };
   
   // Return an error page if the result object is empty or invalid
-  console.log(result);
-  console.log(result.generatedContent)
+  console.log("result data" + result.data);
+  console.log("AI data"+result.generatedContent)
 
   if (!result || !result.generatedContent) {
     return <div>Error: Invalid data received.</div>;
   }
 
   // Extract data from result object
-  const resumeData = result;
+
+  console.log(result.data);
+
+  const resumeData = result.data;
   const aiContent = result.generatedContent;
 
   let workHistory = [];
