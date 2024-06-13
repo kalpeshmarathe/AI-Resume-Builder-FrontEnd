@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap") */
-
-
 
 /* Global Styles */
 * {
@@ -90,7 +87,6 @@ button:hover {
   width: 95%;
 }
 
-
 #addBtn {
   background-color: green;
   margin-right: 5px;
@@ -141,8 +137,6 @@ button:hover {
   margin-bottom: 1px;
 }
 
-
-
 /* Body Styles */
 .resumeBody {
   width: 90%;
@@ -189,7 +183,7 @@ button:hover {
 .social-links {
   display: grid;
   grid-template-columns: repeat(2, auto);
-  gap: 10px; /* Adjust the gap as needed */
+  gap: 10px;
   align-items: center;
 }
 
@@ -199,14 +193,10 @@ button:hover {
 }
 
 .social-links span {
-  margin-left: 5px; /* Adjust margin as needed */
+  margin-left: 5px;
 }
 
-
-
-
-/* new homepage css  */
-
+/* Homepage CSS */
 
 .homepage-app {
   min-height: 100vh;
@@ -216,50 +206,45 @@ button:hover {
   justify-content: center;
   padding: 30px;
   background-color: #000000;
-
   background-color: black;
   color: #254336;
-  /* Animation styles for the gradient */
-  background-image: linear-gradient(to right, #2e9cff 0%, #000000 50%);
+  background-image: linear-gradient(to right, #2e9cff -80%, #000000 70%);
   animation: gradientAnim 5s ease alternate;
-  zindex:-1;
+  z-index: -1;
 }
 
 @keyframes gradientAnim {
   from {
-    opacity:0;
+    opacity: 0;
   }
   to {
-    opacity:1;
+    opacity: 1;
   }
 }
-.form{
-  
+
+.form {
   padding: 30px;
   width: 80%;
   display: flex;
   flex-direction: column;
-  background-color: #0D1222;
+  background-color: #0d1222;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
 }
 
 .homepage-heading {
-  font-size:30px;
+  font-size: 30px;
   color: #2e9cff;
 }
 
 .homepage-description {
-  /* font-size: 20px;
-  font-weight: 700; */
-  font-size:25px;
+  font-size: 25px;
   margin-bottom: 20px;
-  color:white;
+  color: white;
 }
 
 .homepage-label {
-  font-size:18px;
+  font-size: 18px;
   color: white;
   display: block;
   margin-bottom: 5px;
@@ -271,19 +256,15 @@ button:hover {
   margin-bottom: 20px;
   border: 1px solid #3d414e;
   border-radius: 3px;
-  background-color: #0D1222;
+  background-color: #0d1222;
   color: white;
 }
 
 .homepage-input:focus {
- 
   border: 1px solid #2e9cff;
   border-radius: 20px;
-  /* background-color: #0D1222; */
   color: white;
 }
-
-
 
 .homepage-nestedContainer {
   display: flex;
@@ -314,4 +295,77 @@ button:hover {
 .homepage-submitBtn {
   width: 100%;
   padding: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .homepage-app {
+    padding: 20px;
+    background-image: linear-gradient(to right, #2e9cff -80%, #000000 70%);
+
+  }
+  .homepage-nestedContainer{
+    display:block;
+  }
+  .form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .homepage-heading {
+    font-size: 24px;
+  }
+
+  .homepage-description {
+    font-size: 20px;
+  }
+
+  .homepage-label {
+    font-size: 16px;
+  }
+
+  .homepage-input {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .homepage-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-heading {
+    font-size: 20px;
+  }
+  .homepage-nestedContainer{
+    display:block;
+  }
+  .homepage-description {
+    font-size: 18px;
+  }
+
+  .homepage-label {
+    font-size: 14px;
+  }
+
+  .homepage-input {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .homepage-btn {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .homepage-btn__group {
+    flex-direction: column;
+  }
+
+  .homepage-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
