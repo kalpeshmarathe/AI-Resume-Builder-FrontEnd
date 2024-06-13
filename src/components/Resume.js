@@ -30,6 +30,12 @@ const Resume = ({ result }) => {
   const resumeData = result.data;
   const aiContent = result.generatedContent;
 
+  if(resumeData.currentLength === 0)
+    {
+      resumeData.currentLength = null;
+    
+    }
+
   let workHistory = [];
   let educationHistory = [];
   let projectHistory = [];
@@ -71,10 +77,16 @@ const Resume = ({ result }) => {
         <header className="header">
           <div className="header-content">
             <h1 className="name">{resumeData.fullName}</h1>
-            <p className="resumeTitle headerTitle">
-              {resumeData.currentPosition} ({resumeData.currentTechnologies})
-            </p>
-            <p className="resumeTitle">{resumeData.currentLength} year(s) work experience</p>
+            { resumeData.currentTechnologies && 
+            (<p className="resumeTitle headerTitle">
+                {resumeData.currentPosition} ({resumeData.currentTechnologies})
+              </p>)}
+            { resumeData.currentLength &&
+              
+              (
+              <p className="resumeTitle">{resumeData.currentLength} year(s) work experience</p>)
+            }
+            
             <div className="social-links">
               {resumeData.github && (
                 <div>
@@ -167,7 +179,7 @@ const Resume = ({ result }) => {
                   <br />
                   <span className="project-techStack">Tech Stack: {project.techStack}</span>
                   <br />
-                  <span className="project-description">{project.description.replace(/[^\w\s]/gi, "")}</span>
+                  <span className="project-description">{aiContent.projectSummaries.replace(/[^\w\s]/gi, "")}</span>
                 </div>
               ))}
             </div>
